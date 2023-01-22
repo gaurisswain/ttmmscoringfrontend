@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="heading">
+        <h1>Welcome {{investor_name}}!!</h1>
+        <div class="flexbox" *ngFor="let li2 of lis2">
+            <p>{{li2['startup_name']}}</p>
+            <p>{{li2['bid']}}</p>
+        </div>
+    </div>
+    <div class="logout">
+        <button class="logout" (click)="logout()">Logout</button>
+    </div>
+    <div class="content">
+        <mat-card>
+            <mat-card-content>
+                <mat-grid-list cols="3">
+                    <mat-grid-tile *ngFor="let li of lis">
+                        <mat-card>
+                             <mat-card-content>
+                                    <form [formGroup]="firstFormGroup"  class="blue main-form" style="padding-left: 20px;padding-right: 20px; padding-bottom: 10vh;">
+                                        <p id="startup_name">{{li['name']}}</p>
+                                        <mat-label class="input-label">Your Bid</mat-label>
+                                        <mat-form-field appearance="outline" class="input-field">
+                                          <input matInput placeholder="Your Bid" formControlName="bid" required>
+                                          <mat-error *ngIf="firstFormGroup.controls['bid'].hasError('required')">
+                                              Bid is required!
+                                          </mat-error>
+                                        </mat-form-field><br>
+                        
+                                        <div *ngIf="li['current'] == true">Ongoing</div>
+
+                                        <div *ngIf="li['done'] == false" style="text-align: center; color:  white" class="input-field2">
+                                            <!-- <h5>We protect your data and will not be shared to any third parties</h5> -->
+                                            <button class="green-button" mat-button (click)="submit(li['name'])">Submit</button>
+                                        </div>
+
+                                        <div *ngIf="li['done'] == true">Startup is Done</div>
+                                    </form>
+                            </mat-card-content>
+                        </mat-card>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
