@@ -16,7 +16,9 @@ export class ScoringComponent implements OnInit {
   constructor(private _formBuilder: FormBuilder,private router: Router, private http: HttpClient) {}
   
   ngOnInit(): void {
-    this.http.get<any>("http://localhost:8000/progress").subscribe(
+    var body: any = new FormData();
+      body.append('startup',localStorage.getItem('startup_name'));
+    this.http.post<any>("http://localhost:8000/progress",body).subscribe(
         data => {
           this.lis = data
           console.log(this.lis)
