@@ -20,11 +20,11 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatButtonModule} from '@angular/material/button';
 import { NgTemplateOutlet } from '@angular/common';
 import { ResultsComponent } from './final/results/results.component';
-import { LandingComponent } from './final/landing/landing.component';
-import { DetailsComponent } from './final/details/details.component';
 import { WaitComponent } from './final/wait/wait.component';
 import { ResultComponent } from './final/result/result.component';
 import {MatIconModule} from '@angular/material/icon';
+import { CongratsComponent } from './final/congrats/congrats.component';
+import { BlntComponent } from './final/blnt/blnt.component';
 
 const material = [
   MatCardModule,
@@ -43,10 +43,10 @@ const material = [
     AdminLoginComponent,
     AdminComponent,
     ResultsComponent,
-    LandingComponent,
-    DetailsComponent,
     WaitComponent,
     ResultComponent,
+    CongratsComponent,
+    BlntComponent,
   ],
   imports: [
     BrowserModule,

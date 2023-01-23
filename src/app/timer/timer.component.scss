@@ -17,6 +17,9 @@
   border-radius: 4px;
   cursor: pointer;
   outline: none;
+  position: absolute;
+  top: 80%;
+  right: 20%;
 }
 
 .control:hover {
@@ -26,13 +29,26 @@
 
 .display {
   color: #fff;
+  font-size: 40vh;
 }
 
 .button {
   position: absolute;
-  left: 40%;
+  left: 20%;
 }
 
 .container {
   margin-top: 20%;
+}
+
+.buttons {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+h1{
+    font-size: 150px;
+    font-weight: 900;
 }
