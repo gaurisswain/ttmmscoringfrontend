@@ -1,8 +1,14 @@
-<div class="container" *ngFor="let li of lis">
+<div class="name">
+  <h1 class="startup_name">{{lis1}}</h1>
+</div>
+
+<div class="container" >
     <div class="countdown">
-      <countdown [config]="{leftTime: this.countdown, format: 'm:s'}"></countdown>
+      <!-- <countdown [config]="{leftTime: this.countdown, format: 'm:s'}"></countdown> -->
+      <h1 class="timer-new">00:00</h1>
     </div>
-    <div class="name">
-      {{li['startup_name']}}
-    </div>
+  </div>
+
+  <div class="buttons">
+    <button mat-raised-button>Next</button>
   </div>

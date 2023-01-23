@@ -17,13 +17,18 @@ import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatButtonModule} from '@angular/material/button';
+import { NgTemplateOutlet } from '@angular/common';
 import { ResultsComponent } from './final/results/results.component';
+import {MatIconModule} from '@angular/material/icon';
 
 const material = [
   MatCardModule,
   MatFormFieldModule,
   MatInputModule,
-  MatGridListModule
+  MatGridListModule,
+  MatButtonModule,
+  MatIconModule
 ]
 
 @NgModule({
@@ -43,10 +48,12 @@ const material = [
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    material
+    material,
+    NgTemplateOutlet
   ],
   exports: [
-    material
+    material,
+    NgTemplateOutlet
   ],
   providers: [],
   bootstrap: [AppComponent]

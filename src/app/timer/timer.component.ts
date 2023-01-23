@@ -12,17 +12,21 @@ import { HttpClient } from '@angular/common/http';
 export class TimerComponent implements OnInit{
   countdown = 10;
   lis: [];
+  lis1: any;
   constructor(private router: Router, private http: HttpClient) {}
   ngOnInit(): void {
     const changelink = () => {
       this.router.navigateByUrl('/scoring');
     }
 
-    const myTimeout = setTimeout(changelink, this.countdown*1000+10000);
+    // const myTimeout = setTimeout(changelink, this.countdown*1000+10000);
     this.http.get<any>("http://localhost:8000/currentstartup").subscribe(
         data => {
           this.lis = data
           console.log(this.lis)
+          this.lis1 = this.lis['startup_name']
+          localStorage.setItem('startup_name', this.lis1)
+          // this.lis1 = this.lis[0]
         })
   }
 }

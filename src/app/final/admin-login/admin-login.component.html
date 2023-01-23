@@ -2,10 +2,10 @@
     <mat-card>
         <mat-card-content>
             <form [formGroup]="firstFormGroup"  class="blue main-form" style="padding-left: 20px;padding-right: 20px; padding-bottom: 10vh;">
-                <h1 style="color:white;font-size: 2rem;">REGISTRATION FOR SEED STARS</h1>
+                <h1 style="font-size: 2rem;">ADMIN LOGIN</h1>
                 <br>
             
-                <mat-label class="input-label">Username</mat-label>
+                <!-- <mat-label class="input-label">Username</mat-label> -->
                 <mat-form-field appearance="outline" class="input-field">
                   <input matInput placeholder="Username" formControlName="username" required>
                   <mat-error *ngIf="firstFormGroup.controls['username'].hasError('required')">
@@ -13,7 +13,7 @@
                   </mat-error>
                 </mat-form-field><br>
 
-                <mat-label class="input-label">Password</mat-label>
+                <!-- <mat-label class="input-label">Password</mat-label> -->
                 <mat-form-field appearance="outline" class="input-field">
                   <input matInput type="password" placeholder="Password" formControlName="password" required>
                   <mat-error *ngIf="firstFormGroup.controls['password'].hasError('required')">
@@ -23,7 +23,7 @@
 
                 <div style="text-align: center; color:  white" class="input-field2">
                     <!-- <h5>We protect your data and will not be shared to any third parties</h5> -->
-                    <button class="green-button" mat-button (click)="submit()">Submit</button>
+                    <button class="green-button" mat-raised-button (click)="submit()">Submit</button>
                 </div>
             </form>
         </mat-card-content>
