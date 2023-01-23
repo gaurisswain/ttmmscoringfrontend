@@ -66,6 +66,31 @@ export class AdminComponent implements OnInit{
       )
     }
   }
+
+  finalsubmit(startup){
+    if(this.firstFormGroup.valid) {
+      var body: any = new FormData();
+      // body.append('username', this.firstFormGroup.value.username);
+      body.append('bid', this.firstFormGroup.value.bid);
+      body.append('investor_name', localStorage.getItem("investor_name"));
+      body.append('startup_name', startup);
+      this.http.post<any>("http://localhost:8000/finalbid", body).subscribe(
+        data => {
+          // window.location.reload()
+          var body: any = new FormData();
+      body.append('investor_name', localStorage.getItem("investor_name"));
+    this.http.post<any>("http://localhost:8000/defaultbid", body).subscribe(
+        res => {
+          console.log(res)
+          this.lis2 = res;
+          // window.alert("Success")
+        }
+      )
+        }
+      )
+    }
+  }
+
   logout(){
     localStorage.removeItem("isadminlogin")
     localStorage.removeItem("investor_name")

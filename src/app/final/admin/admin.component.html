@@ -1,45 +1,141 @@
 <div class="container">
-    <div class="heading">
-        <h1>Welcome {{investor_name}}!!</h1>
-        <div class="flexbox" *ngFor="let li2 of lis2">
-            <p>{{li2['startup_name']}}</p>
-            <p>{{li2['bid']}}</p>
+  <div class="heading">
+    <h1 class="heading1">Welcome {{ investor_name }}!!</h1>
+  </div>
+  <div class="logout">
+    <button mat-raised-button class="logout" (click)="logout()">Logout</button>
+  </div>
+  <div class="feedback-box">
+    <div class="flexbox" *ngFor="let li2 of lis2">
+        <p>{{ li2["startup_name"] }}</p>
+        <!-- <p>|</p> -->
+        <p class="bold">{{ li2["bid"] }} lakhs</p>
+      </div>
+  </div>
+  <div class="content">
+        <div class="container2">
+            <div class="card" *ngFor="let li of lis">
+                <div class="card-content">
+                    <div
+                      *ngIf="li['current'] == true; then thenBlock else elseBlock"
+                    ></div>
+                    <ng-template #thenBlock >
+                      <mat-card class="cardstartup">
+                        <mat-card-content>
+                          <form
+                            [formGroup]="firstFormGroup"
+                            class="blue main-form"
+                            style="
+                              padding-left: 20px;
+                              padding-right: 20px;
+                              padding-bottom: 10vh;
+                              text-align: center;
+                            "
+                          >
+                            <p id="startup_name">{{ li["name"] }}</p>
+                            <!-- <mat-label class="input-label">Your Bid</mat-label> -->
+                            <mat-form-field
+                              appearance="outline"
+                              class="input-field"
+                              [style.width.px]="100"
+                              *ngIf="li['done'] == false"
+                            >
+                              <input
+                                matInput
+                                placeholder="Your Bid"
+                                formControlName="bid"
+                                />
+                              <!-- <mat-error
+                                *ngIf="
+                                  firstFormGroup.controls['bid'].hasError('required')
+                                "
+                              >
+                                Bid is required!
+                              </mat-error>  -->
+                              </mat-form-field
+                            ><br />
+          
+                            <div
+                              *ngIf="li['current'] == true"
+                              style="text-align: center; color: white"
+                              class="input-field2"
+                            >
+                              <!-- <h5>We protect your data and will not be shared to any third parties</h5> -->
+                              <button (click)="submit(li['name'])" mat-raised-button>
+                                Submit
+                              </button>
+
+                              <!-- <button (click)="finalsubmit(li['name'])" mat-raised-button>
+                                Final Submit
+                              </button> -->
+                            </div>
+          
+                            <div *ngIf="li['done'] == true">
+                              <mat-icon color="green">check_circle_outline</mat-icon>
+                            </div>
+                          </form>
+                        </mat-card-content>
+                      </mat-card>
+                    </ng-template>
+                    <ng-template #elseBlock >
+                      <mat-card class="cardstartup2" #elseBlock>
+                        <mat-card-content>
+                          <form
+                            [formGroup]="firstFormGroup"
+                            class="blue main-form"
+                            style="
+                              padding-left: 20px;
+                              padding-right: 20px;
+                              padding-bottom: 10vh;
+                              text-align: center;
+                            "
+                          >
+                            <p id="startup_name">{{ li["name"] }}</p>
+                            <!-- <mat-label class="input-label">Your Bid</mat-label> -->
+                            <mat-form-field
+                              appearance="outline"
+                              class="input-field"
+                              [style.width.px]="100"
+                              *ngIf="li['done'] == false"
+                            >
+                              <input
+                                matInput
+                                placeholder="Your Bid"
+                                formControlName="bid"
+                                required
+                              />
+                              <!-- <mat-error
+                                *ngIf="
+                                  firstFormGroup.controls['bid'].hasError('required')
+                                "
+                              >
+                                Bid is required!
+                              </mat-error>  -->
+                              </mat-form-field
+                            ><br />
+          
+                            <div *ngIf="li['current'] == true">Ongoing</div>
+          
+                            <div
+                              *ngIf="li['done'] == false"
+                              style="text-align: center; color: white"
+                              class="input-field2"
+                            >
+                              <!-- <h5>We protect your data and will not be shared to any third parties</h5> -->
+                              <button disabled (click)="submit(li['name'])" mat-raised-button>
+                                Submit
+                              </button>
+                            </div>
+          
+                            <div class="icon-container" *ngIf="li['done'] == true">
+                              <mat-icon class="green">check_circle_outline</mat-icon>
+                            </div>
+                          </form>
+                        </mat-card-content>
+                      </mat-card>
+                    </ng-template>
+                  </div>
+            </div>
         </div>
-    </div>
-    <div class="logout">
-        <button class="logout" (click)="logout()">Logout</button>
-    </div>
-    <div class="content">
-        <mat-card>
-            <mat-card-content>
-                <mat-grid-list cols="3">
-                    <mat-grid-tile *ngFor="let li of lis">
-                        <mat-card>
-                             <mat-card-content>
-                                    <form [formGroup]="firstFormGroup"  class="blue main-form" style="padding-left: 20px;padding-right: 20px; padding-bottom: 10vh;">
-                                        <p id="startup_name">{{li['name']}}</p>
-                                        <mat-label class="input-label">Your Bid</mat-label>
-                                        <mat-form-field appearance="outline" class="input-field">
-                                          <input matInput placeholder="Your Bid" formControlName="bid" required>
-                                          <mat-error *ngIf="firstFormGroup.controls['bid'].hasError('required')">
-                                              Bid is required!
-                                          </mat-error>
-                                        </mat-form-field><br>
-                        
-                                        <div *ngIf="li['current'] == true">Ongoing</div>
-
-                                        <div *ngIf="li['done'] == false" style="text-align: center; color:  white" class="input-field2">
-                                            <!-- <h5>We protect your data and will not be shared to any third parties</h5> -->
-                                            <button class="green-button" mat-button (click)="submit(li['name'])">Submit</button>
-                                        </div>
-
-                                        <div *ngIf="li['done'] == true">Startup is Done</div>
-                                    </form>
-                            </mat-card-content>
-                        </mat-card>
-                    </mat-grid-tile>
-                </mat-grid-list>
-            </mat-card-content>
-        </mat-card>
-    </div>
+  </div>
 </div>
