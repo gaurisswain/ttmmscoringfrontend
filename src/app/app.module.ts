@@ -18,6 +18,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ResultsComponent } from './final/results/results.component';
+import { LandingComponent } from './final/landing/landing.component';
+import { DetailsComponent } from './final/details/details.component';
+import { WaitComponent } from './final/wait/wait.component';
+import { ResultComponent } from './final/result/result.component';
 
 const material = [
   MatCardModule,
@@ -34,6 +38,10 @@ const material = [
     AdminLoginComponent,
     AdminComponent,
     ResultsComponent,
+    LandingComponent,
+    DetailsComponent,
+    WaitComponent,
+    ResultComponent,
   ],
   imports: [
     BrowserModule,

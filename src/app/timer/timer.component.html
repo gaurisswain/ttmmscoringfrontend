@@ -1,8 +1,10 @@
-<div class="container" *ngFor="let li of lis">
-    <div class="countdown">
-      <countdown [config]="{leftTime: this.countdown, format: 'm:s'}"></countdown>
-    </div>
-    <div class="name">
-      {{li['startup_name']}}
-    </div>
-  </div>
+<div class="container">
+  <div class="stop-watch">
+    <div class="display">{{format(mm)}}:{{format(ss)}}:{{format(ms)}}</div>
+    <button class="control" 
+      (click)="clickHandler()">
+      {{isRunning ? 'Stop' : 'Start'}}
+    </button>
+  </div>  
+  <a [routerLink] = "['/wait']"><button type="button" class="control button">End Pitch</button></a>
+</div>

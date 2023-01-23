@@ -1,0 +1,24 @@
+.button {
+  width: 300px;
+  padding: 5px;
+  margin-top: 15px;
+  font-size: 36px;
+  font-weight: bold;
+  border: 2px solid #f44336;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  position: absolute;
+  left: 40%;
+  top: 70%;
+}
+.button:hover {
+  background: #f44336;
+  color: aliceblue;
+}
+
+.loader {
+  position: absolute;
+  left: 35%;
+  margin-top: 3%;
+}
