@@ -26,6 +26,7 @@ export class AdminComponent implements OnInit{
       // founder_name: ['', Validators.required],
       bid:['', Validators.required],
     });
+
     this.http.get<any>("http://localhost:8000/startups").subscribe(
         res => {
           console.log(res)
@@ -42,6 +43,25 @@ export class AdminComponent implements OnInit{
           // window.alert("Success")
         }
       )
+
+    setInterval(() => {
+      this.http.get<any>("http://localhost:8000/startups").subscribe(
+        res => {
+          console.log(res)
+          this.lis = res;
+          // window.alert("Success")
+        }
+      )
+      var body: any = new FormData();
+      body.append('investor_name', localStorage.getItem("investor_name"));
+    this.http.post<any>("http://localhost:8000/defaultbid", body).subscribe(
+        res => {
+          console.log(res)
+          this.lis2 = res;
+          // window.alert("Success")
+        }
+      )
+    }, 120000)
   }
   submit(startup){
     if(this.firstFormGroup.valid) {

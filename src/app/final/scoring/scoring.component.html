@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="progress">
-    <div class="progress-value" style="--length: 68%;"></div>
+  <div class="progress" *ngFor="let li of lis">
+    <div class="progress-value" style="--length: {{li['percentage']}};"></div>
   </div>
 </div>
