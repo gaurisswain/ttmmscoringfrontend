@@ -1,5 +1,6 @@
-<div class="container">
-  <div class="progress" *ngFor="let li of lis">
+<div class="container" *ngFor="let li of lis">
+  <div class="progress">
     <div class="progress-value" style="--length: {{li['percentage']}};"></div>
   </div>
 </div>
+<div class="totalbid" *ngFor="let li of lis"><div class="total-bid" [countUp]="li['totalbid']">0</div></div>

@@ -13,6 +13,8 @@ import Swal from 'sweetalert2'
 })
 export class ScoringComponent implements OnInit {
   lis: [];
+  length: any;
+  lis2: [];
   constructor(private _formBuilder: FormBuilder,private router: Router, private http: HttpClient) {}
   
   ngOnInit(): void {
@@ -22,6 +24,16 @@ export class ScoringComponent implements OnInit {
         data => {
           this.lis = data
           console.log(this.lis)
+          this.length = 0
+          this.lis2 = this.lis[this.length]
+          setTimeout(() => {
+            if(this.lis2['totalbid']>=24){
+              this.router.navigateByUrl("/congrats")
+            }
+            else{
+              this.router.navigateByUrl("/blnt")
+            }
+          }, 8000);
         })
   }
 }

@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdminLoginComponent } from './final/admin-login/admin-login.component';
 import { AdminComponent } from './final/admin/admin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CountUpModule } from 'ngx-countup';
 
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -57,7 +58,8 @@ const material = [
     HttpClientModule,
     BrowserAnimationsModule,
     material,
-    NgTemplateOutlet
+    NgTemplateOutlet,
+    CountUpModule
   ],
   exports: [
     material,

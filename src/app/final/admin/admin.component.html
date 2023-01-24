@@ -10,6 +10,9 @@
         <p>{{ li2["startup_name"] }}</p>
         <!-- <p>|</p> -->
         <p class="bold">{{ li2["bid"] }} lakhs</p>
+        <p *ngIf="li2['isfunded']==null" style="color: rgb(153, 98, 15);">Not decided</p>
+        <p *ngIf="li2['isfunded']==false" style="color: red;">Not Funded</p>
+        <p *ngIf="li2['isfunded']==true" style="color: green;">Funded</p>
       </div>
   </div>
   <div class="content">

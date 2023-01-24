@@ -14,7 +14,7 @@ import { BlntComponent } from './final/blnt/blnt.component';
 const routes: Routes = [
   { path: 'admin-login', component: AdminLoginComponent },
   { path: 'admin', component: AdminComponent },
-  { path: 'scoring', component: ScoringComponent },
+  { path: 'progress', component: ScoringComponent },
   { path: 'results', component: ResultsComponent },
   { path: 'timer', component: TimerComponent },
   { path: 'wait', component: WaitComponent },

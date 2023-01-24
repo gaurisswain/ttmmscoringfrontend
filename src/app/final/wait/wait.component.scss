@@ -1,11 +1,18 @@
 .loader {
-  position: absolute;
-  left: 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 3%;
 }
 h1{
   color:#fff;
-  position:absolute;
-  left:40%;
-  top:80%;
+  // position:absolute;
+  // left:40%;
+  // top:80%;
+}
+
+.text{
+  text-align: center;
+  width: 100vw;
+  margin-top: 2rem;
 }

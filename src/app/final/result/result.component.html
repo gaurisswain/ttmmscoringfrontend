@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="investor">
-    <img src="../../../assets/man.png" alt="" />
-    <p>Investor Name</p>
-    <p>20 Lakhs</p>
+  <div class="investor" *ngFor="let li of lismain">
+    <img [src]="li['image']" alt="Investor picture" />
+    <p>{{li['investor_name']}}</p>
+    <p>{{li['bid']}} lakhs</p>
   </div>
 </div>
